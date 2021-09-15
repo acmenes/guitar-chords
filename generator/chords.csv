@@ -1,0 +1,9 @@
+id,root,quality,extensions,inv,E_fret,A_fret,D_fret,G_fret,B_fret,High_E_fret,E_finger,A_finger,D_finger,G_finger,B_finger,High_E_finger
+1,C,Major,None,0,-1,3,2,0,1,0,0,3,2,0,1,0
+2,G,Major,None,0,3,2,0,0,0,3,3,2,0,0,0,4
+3,D,Major,None,0,-1,-1,0,2,3,2,0,0,0,1,3,2
+4,A,Major,None,0,-1,0,2,2,2,0,0,0,2,3,4,0
+5,E,Major,None,0,0,2,2,1,0,0,0,2,3,1,0,0
+6,A,Minor,None,0,0,0,2,2,1,0,0,0,2,3,1,0
+7,E,Minor,None,0,0,2,2,0,0,0,0,2,3,0,0,0
+8,D,Minor,None,0,-1,-1,0,2,3,1,0,0,0,2,4,1
