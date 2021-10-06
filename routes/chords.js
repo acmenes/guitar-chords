@@ -10,12 +10,13 @@ router.get("/", async function(req, res, next){
 
 router.get("/sample", async function(req, res, next){
     return res.json({
-        root: 'C',
+        key: 'C',
         suffix: 'Major',
         positions: [{
             frets: 'x32010',
-            fingers: '032010'
-        }] 
+            fingers: '032010',
+            capo: false
+        }],
     })
 });
 

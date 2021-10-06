@@ -1,0 +1,18 @@
+INSERT INTO chords (key, 
+                    quality, 
+                    extensions, 
+                    inv, 
+                    E_fret,
+                    A_fret,
+                    D_fret,
+                    G_fret,
+                    B_fret,
+                    High_E_fret,
+                    E_finger,
+                    A_finger,
+                    D_finger,
+                    G_finger,
+                    B_finger,
+                    High_E_finger)
+        VALUES ('C', 'Major', 'None', '0', 'x', '3', '2', '0', '1', '0', '0', '3', '2', '0', '1', '0'),
+                ('G', 'Major', 'None', '0', '3', '2', '0', '0', '0', '3', '3', '2', '0', '0', '0', '4');
