@@ -6,11 +6,16 @@ const { NotFoundError } = require("../expressError")
 class Chord {
     /** Displays chords based on information in the database */
 
-    static async getAllChords(){
+    static async getAllChords() {
         const result = await db.query(`SELECT id, roots, qualities, barres, capo, frets, fingers 
                                         FROM chords`)
         return result.rows;
     }
+    /// select one chord
+    // static async getChord(roots, qualities) {
+    //     const result = await db.query(`SELECT id, roots, qualities, barres, capo, frets, fingers
+    //                                         FROM chords`)
+    // }
 }
 
 module.exports = Chord;
