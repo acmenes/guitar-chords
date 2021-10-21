@@ -7,15 +7,32 @@ class Chord {
     /** Displays chords based on information in the database */
 
     static async getAllChords() {
-        const result = await db.query(`SELECT id, roots, qualities, barres, capo, frets, fingers 
+        const result = await db.query(`SELECT id, 
+                                            chord_fullname, 
+                                            roots, 
+                                            qualities, 
+                                            barres, 
+                                            capo, 
+                                            frets, 
+                                            fingers 
                                         FROM chords`)
         return result.rows;
     }
-    /// select one chord
-    // static async getChord(roots, qualities) {
-    //     const result = await db.query(`SELECT id, roots, qualities, barres, capo, frets, fingers
-    //                                         FROM chords`)
-    // }
+
+    // select one chord
+    static async getChord(roots, qualities) {
+        const result = await db.query(`SELECT id, 
+                                        chord_fullname, 
+                                        roots, 
+                                        qualities, 
+                                        barres, 
+                                        capo, 
+                                        frets, 
+                                        fingers 
+                                    FROM chords
+                                    WHERE chord_fullname=$1`, [chord_fullname]);
+        return result.rows;
+    }
 }
 
 module.exports = Chord;

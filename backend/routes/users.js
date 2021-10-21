@@ -1,12 +1,13 @@
 "use strict";
 
 const express = require("express");
+const User = require("../models/user");
 
 const router = new express.Router({ mergeParams: true });
 
 router.get("/", async function(req, res, next){
-    /// this should be an admin only route
-    return res.json({ "users": "users"})
+    const users = await User.findAll()
+    return res.json({ users })
 });
 
 router.get("/:username", async function(req, res, next){

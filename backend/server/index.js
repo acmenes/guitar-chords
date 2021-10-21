@@ -8,9 +8,11 @@ const app = express();
 
 const chordsRoutes = require("../routes/chords")
 const scalesRoutes = require("../routes/scales")
+const usersRoutes = require("../routes/users")
 
 app.use("/chords", chordsRoutes)
 app.use("/scales", scalesRoutes)
+app.use("/users", usersRoutes)
 
 app.get("/api", (req, res) => {
     res.json({ message: "Hello!"})

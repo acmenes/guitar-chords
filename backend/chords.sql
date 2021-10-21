@@ -1,6 +1,9 @@
 \echo 'Delete and recreate chords db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
+-- \i chords-schema.sql
+-- \i chords-seed.sql
+
 DROP DATABASE chords_db;
 CREATE DATABASE chords_db;
 \connect chords_db
