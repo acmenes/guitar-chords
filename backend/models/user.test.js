@@ -36,3 +36,17 @@ const {
         }
       });
     });
+
+
+    /** Find all users */
+
+    describe("findAll", function () {
+        test("works", async function () {
+          const users = await User.findAll();
+          expect(users).toEqual([
+            {
+              username: "newtestuser"
+            }
+          ]);
+        });
+      });
