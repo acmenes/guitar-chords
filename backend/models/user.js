@@ -8,14 +8,17 @@ const {
     UnauthorizedError,
   } = require("../expressError");
 
-const { BCRYPT_WORK_FACTOR } = require("../config.js");
+const { BCRYPT_WORK_FACTOR } = require("../config");
+
+const defaultImg = "https://picsum.photos/200/300";
+const defaultBio = "Add your bio here!"
 
 class User {
     /** Methods for the user class */
 
     /** Check if a user is in the database and make sure the password they entered is correct  */
 
-    static async authenticate(username, password) {
+    static async authenticate({ username, password }) {
         const result = await db.query(`SELECT username, password 
                                         FROM users 
                                         WHERE username = $1`, [username]);
@@ -35,7 +38,7 @@ class User {
     }
 
     /** Add a new user */
-    static async register({ username, password }) {
+    static async register({ username, password, profilePicture, bio, isAdmin }) {
 
         /** Check for a duplicate username before registering */
 
@@ -50,16 +53,24 @@ class User {
         throw new BadRequestError(`Duplicate username: ${username}`);
       }
   
-      const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
+    const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
       const result = await db.query(`INSERT INTO users
                                             (username,
-                                            password)
-                                            VALUES ($1, $2)
-                                            RETURNING username`,
+                                            password,
+                                            profile_picture,
+                                            bio,
+                                            is_admin)
+                                            VALUES ($1, $2, $3, $4, $5)
+                                            RETURNING username, is_admin AS "isAdmin"`,
                                             [
+                                                ///this seems to be broken at the moment
+                                                /// it doesn't let me pass a variable into it??
                                                 username,
-                                                hashedPassword
+                                                hashedPassword,
+                                                defaultImg,
+                                                defaultBio,
+                                                isAdmin,
                                             ],
                                     );
 

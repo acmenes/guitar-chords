@@ -20,7 +20,7 @@ class Chord {
     }
 
     // select one chord
-    static async getChord(roots, qualities) {
+    static async getChord(chord_fullname) {
         const result = await db.query(`SELECT id, 
                                         chord_fullname, 
                                         roots, 

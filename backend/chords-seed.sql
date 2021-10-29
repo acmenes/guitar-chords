@@ -20,6 +20,7 @@
 INSERT INTO CHORDS(chord_fullname, roots, qualities, barres, capo, frets, fingers) 
         VALUES  ('g-major', 'G', 'Major', 'None', 'False', '3, 2, 0, 0, 0, 3', '3, 2, 0, 0, 0, 4'),
                 ('a-major', 'A', 'Major', 'None', 'False', '0, 0, 2, 2, 2, 0', '0, 0, 2, 3, 4, 0'),
+                ('b-major', 'B', 'Major', '2', 'False', '0, 2, 4, 4, 4, 2', '0, 1, 2, 3, 4, 1'),
                 ('c-major', 'C', 'Major', 'None', 'False', '0, 3, 2, 0, 1, 0', '0, 3, 2, 0, 1, 0'),
                 ('d-major', 'D', 'Major', 'None', 'False', '0, 0, 0, 2, 3, 2', '0, 0, 0, 1, 3, 2'),
                 ('e-major', 'E', 'Major', 'None', 'False', '0, 2, 2, 1, 0, 0', '0, 2, 3, 1, 0, 0'),
@@ -27,6 +28,7 @@ INSERT INTO CHORDS(chord_fullname, roots, qualities, barres, capo, frets, finger
                 ('d-minor', 'D', 'Minor', 'None', 'False', '0, 0, 0, 2, 3, 1', '0, 0, 0, 2, 4, 1'),
                 ('e-minor', 'E', 'Minor', 'None', 'False', '0, 2, 2, 0, 0, 0', '0, 2, 3, 0, 0, 0');
                 
-INSERT INTO USERS(username, password, profile_picture, bio)
-        VALUES('testuser', 'testtest', 'https://picsum.photos/200/300', 'test user'),  
-              ('testuser2', 'testtest', 'https://picsum.photos/200/300', 'test user 2');             
+INSERT INTO USERS(username, password, profile_picture, bio, is_admin)
+        VALUES('testuser', 'testtest', 'https://picsum.photos/200/300', 'test user', FALSE),  
+              ('testuser2', 'testtest', 'https://picsum.photos/200/300', 'test user 2', FALSE),
+              ('testadmin', 'admin', 'https://picsum.photos/200/300', 'test admin', TRUE);             
