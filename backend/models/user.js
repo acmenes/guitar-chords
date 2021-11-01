@@ -64,8 +64,6 @@ class User {
                                             VALUES ($1, $2, $3, $4, $5)
                                             RETURNING username, is_admin AS "isAdmin"`,
                                             [
-                                                ///this seems to be broken at the moment
-                                                /// it doesn't let me pass a variable into it??
                                                 username,
                                                 hashedPassword,
                                                 defaultImg,

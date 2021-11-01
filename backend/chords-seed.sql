@@ -19,14 +19,25 @@
 
 INSERT INTO CHORDS(chord_fullname, roots, qualities, barres, capo, frets, fingers) 
         VALUES  ('g-major', 'G', 'Major', 'None', 'False', '3, 2, 0, 0, 0, 3', '3, 2, 0, 0, 0, 4'),
+                ('g#-major', 'G#', 'Major', '4', 'False', '4, 6, 6, 5, 4, 4', '1, 3, 4, 2, 1, 1'),
+                ('ab-major', 'Ab', 'Major', '4', 'False', '4, 6, 6, 5, 4, 4', '1, 3, 4, 2, 1, 1'),
                 ('a-major', 'A', 'Major', 'None', 'False', '0, 0, 2, 2, 2, 0', '0, 0, 2, 3, 4, 0'),
+                ('a#-major', 'A#', 'Major', '6', 'False', '6, 8, 8, 7, 6, 6', '1, 3, 4, 2, 1, 1'),
+                ('bb-major', 'B#', 'Major', '6', 'False', '6, 8, 8, 7, 6, 6', '1, 3, 4, 2, 1, 1'),
                 ('b-major', 'B', 'Major', '2', 'False', '0, 2, 4, 4, 4, 2', '0, 1, 2, 3, 4, 1'),
+                ('b#-major', 'B#', 'Major', '3', 'False', '0, 3, 5, 5, 5, 3', '0, 1, 2, 3, 4, 1'),
+                ('cb-major', 'Cb', 'Major', '2', 'False', '0, 2, 4, 4, 4, 2', '0, 1, 2, 3, 4, 1'),
                 ('c-major', 'C', 'Major', 'None', 'False', '0, 3, 2, 0, 1, 0', '0, 3, 2, 0, 1, 0'),
                 ('d-major', 'D', 'Major', 'None', 'False', '0, 0, 0, 2, 3, 2', '0, 0, 0, 1, 3, 2'),
                 ('e-major', 'E', 'Major', 'None', 'False', '0, 2, 2, 1, 0, 0', '0, 2, 3, 1, 0, 0'),
+                ('f-major', 'F', 'Major', '1', 'False', '1, 3, 3, 2, 1, 1', '1, 3, 4, 2, 1, 1'),
                 ('a-minor', 'A', 'Minor', 'None', 'False', '0, 0, 2, 2, 1, 0', '0, 0, 2, 3, 1, 0'),
+                ('b-minor', 'B', 'Minor', '2', 'False', '0, 2, 4, 4, 3, 2', '0, 1, 2, 3, 4, 1'),
+                ('c-minor', 'C', 'Minor', '3', 'False', '0, 3, 5, 5, 4, 3', '0, 1, 2, 3, 4, 1'),
                 ('d-minor', 'D', 'Minor', 'None', 'False', '0, 0, 0, 2, 3, 1', '0, 0, 0, 2, 4, 1'),
-                ('e-minor', 'E', 'Minor', 'None', 'False', '0, 2, 2, 0, 0, 0', '0, 2, 3, 0, 0, 0');
+                ('e-minor', 'E', 'Minor', 'None', 'False', '0, 2, 2, 0, 0, 0', '0, 2, 3, 0, 0, 0'),
+                ('f-minor', 'F', 'Minor', '1', 'False', '1, 3, 3, 1, 1, 1', '1, 3, 4, 1, 1, 1'),
+                ('g-minor', 'G', 'Minor', '3', 'False', '3, 5, 5, 3, 3, 3', '1, 3, 4, 1, 1, 1');
                 
 INSERT INTO USERS(username, password, profile_picture, bio, is_admin)
         VALUES('testuser', 'testtest', 'https://picsum.photos/200/300', 'test user', FALSE),  

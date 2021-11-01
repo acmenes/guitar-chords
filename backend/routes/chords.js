@@ -23,16 +23,24 @@ router.get("/:chord_fullname", cors({origin: '*'}), async function(req, res, nex
     }
 });
 
-router.get("/sample", async function(req, res, next){
-    return res.json({
-        key: 'C',
-        suffix: 'Major',
-        positions: [{
-            frets: 'x32010',
-            fingers: '032010',
-            capo: false
-        }],
-    })
+router.post("/", cors({origin: '*'}), async function(req, res, next){
+    try{
+        const chord = await Chord.addChord(req.body) 
+        return res.json({ chord })
+    } catch(err) {
+        return next(err)
+    }
 });
 
 module.exports = router;
+
+/** test chord
+ * 
+ * {"chord_fullname":"f-major",
+           "roots":"F",
+           "qualities":"Major",
+           "barres":"None",
+           "capo":false,
+           "frets":"1, 3, 3, 2, 1, 1",
+           "fingers":"1, 3, 4, 2, 1, 1"}
+ */

@@ -1,6 +1,5 @@
 CREATE TABLE chords (
-    id SERIAL PRIMARY KEY,
-    chord_fullname TEXT NOT NULL,
+    chord_fullname TEXT NOT NULL PRIMARY KEY,
     roots TEXT NOT NULL,
     qualities TEXT NOT NULL,
     barres TEXT,
