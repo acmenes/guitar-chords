@@ -6,6 +6,7 @@ const {
     NotFoundError,
     BadRequestError,
     UnauthorizedError,
+    ExpressError,
   } = require("../expressError");
 
 const { BCRYPT_WORK_FACTOR } = require("../config");
@@ -111,6 +112,27 @@ class User {
         const user = result.rows[0];
         
         if (!user) throw new NotFoundError(`No user: ${username}`);
+    }
+
+    /** Add chords to a user's practice list */
+    static async addChordToList(username, chordFullName) {
+        const checkChord = await db.query(`SELECT chord_fullname 
+                                            FROM chords 
+                                            WHERE chord_fullname = $1`, [chordFullName])
+        const chord = checkChord.rows[0]
+
+        if(!chord) throw new NotFoundError(`No chord by that name`)
+
+        const checkUser = await db.query(`SELECT username 
+                                            FROM users
+                                            WHERE username = $1`, [username])
+
+        const user = checkUser.rows[0]
+
+        if(!user) throw new NotFoundError(`No user by that name`)
+
+        await db.query(`INSERT INTO user_chords (username, chord_fullname) 
+                            VALUES ($1, $2)`, [username, chordFullName])
     }
 }
 

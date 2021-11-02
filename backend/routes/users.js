@@ -62,4 +62,16 @@ router.delete(":/username", async function(req, res, next){
     }
 });
 
+/** Add a chord to a user's list */
+
+router.post("/:username/chords/:chordname", async function (req, res, next){
+    try{
+        const chord = req.params.chordname
+        await User.addChordToList(req.params.username)
+        return res.json({ added: chord })
+    } catch(err) {
+        return next(err)
+    }
+});
+
 module.exports = router;

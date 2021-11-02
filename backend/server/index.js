@@ -16,6 +16,7 @@ const chordsRoutes = require("../routes/chords")
 const scalesRoutes = require("../routes/scales")
 const usersRoutes = require("../routes/users")
 const authRoutes = require("../routes/auth")
+const progressionRoutes = require("../routes/progressions")
 
 const REACT_APP_URL = "http://localhost:3000"
 
@@ -36,6 +37,7 @@ app.use("/chords", chordsRoutes)
 app.use("/scales", scalesRoutes)
 app.use("/users", usersRoutes)
 app.use("/auth", authRoutes)
+app.use("/progressions", progressionRoutes)
 
 // app.use(function(req, res, next) {
 //   res.header('Access-Control-Allow-Origin', REACT_APP_URL);
