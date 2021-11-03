@@ -76,7 +76,7 @@ router.get("/:username/chords", async function (req, res, next){
 
 router.post("/:username/chords/:chord_fullname", async function (req, res, next){
     try{
-        const chord = req.params.chordname_fullname
+        const chord = req.params.chord_fullname
         await User.addChordToList(req.params.username, chord)
         return res.json({ added: chord })
     } catch(err) {
