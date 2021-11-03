@@ -51,4 +51,9 @@ INSERT INTO PROGRESSIONS(chord_1, chord_2, chord_3, chord_4)
                 ('d-major', 'b-minor', 'g-major', 'a-major'),
                 ('d-major', 'b-minor', 'g-major', 'a-7'),
                 ('e-minor', 'c-major', 'g-major', 'd-major'),
-                ('a-minor', 'g-major', 'f-major', 'e-7');             
+                ('a-minor', 'g-major', 'f-major', 'e-7');   
+
+INSERT INTO USER_CHORDS(username, chord_fullname)
+        VALUES('testuser', 'c-major'),
+                ('testuser', 'e-minor'),
+                ('testuser', 'a-minor');

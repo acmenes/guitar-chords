@@ -115,24 +115,36 @@ class User {
     }
 
     /** Add chords to a user's practice list */
-    static async addChordToList(username, chordFullName) {
+    static async addChordToList(username, chord_fullname) {
         const checkChord = await db.query(`SELECT chord_fullname 
                                             FROM chords 
-                                            WHERE chord_fullname = $1`, [chordFullName])
+                                            WHERE chord_fullname=$1`, [chord_fullname])
         const chord = checkChord.rows[0]
 
         if(!chord) throw new NotFoundError(`No chord by that name`)
 
         const checkUser = await db.query(`SELECT username 
                                             FROM users
-                                            WHERE username = $1`, [username])
+                                            WHERE username=$1`, [username])
 
         const user = checkUser.rows[0]
 
         if(!user) throw new NotFoundError(`No user by that name`)
 
         await db.query(`INSERT INTO user_chords (username, chord_fullname) 
-                            VALUES ($1, $2)`, [username, chordFullName])
+                            VALUES ($1, $2)`, [username, chord_fullname])
+    }
+
+    static async getUserChords(username) {
+        const result = await db.query(`SELECT chord_fullname 
+                                                FROM user_chords
+                                                WHERE username = $1`, [username])
+
+        return result.rows;
+    }
+
+    static async addProgressionTolist(username, id) {
+        /// coming soon
     }
 }
 

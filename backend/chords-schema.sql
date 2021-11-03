@@ -18,7 +18,8 @@ CREATE TABLE users (
 
 CREATE TABLE user_chords (
     username TEXT REFERENCES users ON DELETE CASCADE,
-    chord_fullname TEXT REFERENCES chords ON DELETE CASCADE
+    chord_fullname TEXT REFERENCES chords ON DELETE CASCADE,
+    done BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE progressions (

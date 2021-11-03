@@ -62,13 +62,32 @@ router.delete(":/username", async function(req, res, next){
     }
 });
 
+/** List of a user's saved chords */
+router.get("/:username/chords", async function (req, res, next){
+    try{
+        const chordList = await User.getUserChords(req.params.username)
+        return res.json({ chordList: chordList })
+    } catch(err) {
+        return next(err)
+    }
+});
+
 /** Add a chord to a user's list */
 
-router.post("/:username/chords/:chordname", async function (req, res, next){
+router.post("/:username/chords/:chord_fullname", async function (req, res, next){
     try{
-        const chord = req.params.chordname
-        await User.addChordToList(req.params.username)
+        const chord = req.params.chordname_fullname
+        await User.addChordToList(req.params.username, chord)
         return res.json({ added: chord })
+    } catch(err) {
+        return next(err)
+    }
+});
+
+/** Have a user edit their favorite chords */
+router.patch("/:username/chords/:chord_fullname", async function (req, res, next){
+    try{
+        return("chord")
     } catch(err) {
         return next(err)
     }
