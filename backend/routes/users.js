@@ -12,7 +12,7 @@ const router = new express.Router({ mergeParams: true });
 router.post("/", ensureAdmin, async function(req, res, next){
     try {
         const newUser = await User.register(req.body)
-        // const token = createToken(newUser);
+        const token = createToken(newUser);
         return res.json({ newUser })
     } catch(err) {
         return next(err)
