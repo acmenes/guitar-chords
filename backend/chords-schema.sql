@@ -17,9 +17,11 @@ CREATE TABLE users (
 );
 
 CREATE TABLE user_chords (
+    id SERIAL PRIMARY KEY,
     username TEXT REFERENCES users ON DELETE CASCADE,
     chord_fullname TEXT REFERENCES chords ON DELETE CASCADE,
-    done BOOLEAN DEFAULT FALSE
+    done BOOLEAN DEFAULT FALSE,
+    UNIQUE (username, chord_fullname)
 );
 
 CREATE TABLE progressions (

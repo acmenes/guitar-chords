@@ -136,7 +136,7 @@ class User {
     }
 
     static async getUserChords(username) {
-        const result = await db.query(`SELECT chord_fullname 
+        const result = await db.query(`SELECT chord_fullname, done 
                                                 FROM user_chords
                                                 WHERE username = $1`, [username])
 
