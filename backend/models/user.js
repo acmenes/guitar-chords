@@ -143,6 +143,16 @@ class User {
         return result.rows;
     }
 
+    static async editUserChord(username, chord_fullname) {
+        const updatedChord = true;
+        const result = await db.query(`UPDATE user_chords
+                                        SET done = ${updatedChord}
+                                        WHERE username = $1 AND chord_fullname = $2
+                                        RETURNING chord_fullname, done`, [username, chord_fullname])
+        
+        return result.rows;
+    }
+
     static async addProgressionTolist(username, id) {
         /// coming soon
     }

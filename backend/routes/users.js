@@ -81,10 +81,13 @@ router.post("/:username/chords/:chord_fullname", ensureCorrectUserOrAdmin, async
     }
 });
 
-/** Have a user edit their favorite chords, can also be done by an admin*/
+/** Have a user change the status on their chord from not done to done, can also be done by an admin*/
 router.patch("/:username/chords/:chord_fullname", ensureCorrectUserOrAdmin, async function (req, res, next){
     try{
-        return("chord")
+        const username = req.params.username;
+        const chord = req.params.chord_fullname;
+        await User.editUserChord(username, chord)
+        return("Updated your chord")
     } catch(err) {
         return next(err)
     }
